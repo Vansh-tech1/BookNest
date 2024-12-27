@@ -1,63 +1,70 @@
-const express = require("express");
-const app = express();
-const posts=require("./routes/posts.js");
-const users=require("./routes/users.js");
-
-app.listen(3000,()=>{
-    console.log("listening on port 3000");
-})
-
-app.use("/posts",posts);
-app.use("/users",users);
+    const express = require("express");
+    const app = express();
+    const posts = require("./routes/posts.js");
+    const users = require("./routes/users.js");
+    const session = require("express-session");
+    const flash=require("connect-flash");
+    const path=require("path");
 
 
-app.get("/",(req,res)=>{
-    res.send("root is working");
-})
+    app.set("view engine","ejs");
+    app.set("views",path.join(__dirname,"views"));
 
-//users
+    const sessionOptions={
+        secret: "KeyboardCat", 
+        resave: false, 
+        saveUninitialized: true,        
+    }
 
-//index -- users
-// app.get("/users",(req,res)=>{
-//     res.send("get for users");
-// })
+    app.use(session(sessionOptions));
+    app.use(flash());
+    app.use((req,res,next)=>{
+        res.locals.errorMsg=req.flash("error");
+        res.locals.successMsg=req.flash("success");
+        next();
+    })
 
-// //show -- users
-// app.get("/users/:id",(req,res)=>{
-//     res.send("show for users");
-// })
+    
+    app.get("/register",(req,res)=>{
+        let {name="Anonymous"}=req.query;
+        req.session.name=name;
 
-// //post -- users
-// app.post("/users",(req,res)=>{
-//     res.send("post for users");
-// })
+        if(name==="Anonymous"){
+            req.flash("error","user not registered successfully");
+        }else{
+            req.flash("success","user registered successfully");
+        }
+        res.redirect("/hello");
+    })
+    
+    
+    
+    app.get("/hello", (req, res) => {
+        res.render("page.ejs",{name:req.session.name});        
+    })
+    
+    // const cookieParser=require("cookie-parser");
+    
+    // app.use(cookieParser("Secret"));
 
-// //delete -- users
-// app.delete("/users/:id",(req,res)=>{
-//     res.send("delete for users");
-// })
 
-//posts
+    // app.use("/posts",posts);
+    // app.use("/users",users);
 
 
-// //index -- posts
-// app.get("/posts",(req,res)=>{
-//     res.send("get for posts");
-// })
+    // app.get("/",(req,res)=>{
+    //     let {name}=req.signedCookies;
+    //     res.send(`hi ${name}`);
 
-// //show -- posts
-// app.get("/posts/:id",(req,res)=>{
-//     res.send("show for posts");
-// })
+    // })
+    // app.get("/getcookies",(req,res)=>{
+    //     res.cookie("name","vansh", {signed:true});
+    //     res.cookie("country","India");
+    //     res.send("i sent you some cookies!");
+    // })
 
-// //post -- posts
-// app.post("/posts",(req,res)=>{
-//     res.send("post for posts");
-// })
-
-// //delete -- posts
-// app.delete("/posts/:id",(req,res)=>{
-//     res.send("delete for posts");
-// })
+    app.listen(3000, () => {
+        console.log("listening on port 3000");
+    })
 
 

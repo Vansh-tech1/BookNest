@@ -1,12 +1,9 @@
 <% layout('/layouts/boilerplate') -%>
 
 <body>
-     <h2 style="margin-left: 1rem; ">   All listings</h2> 
-     <!-- <form action="/listings/new" method="get">
-        <button>Create New Listing</button>
-    </form> --> 
-
-
+    <div class="main-heading">
+      <h2 style="margin-left: 1rem; margin-bottom: 0;">BookNest</h2>
+    </div>     
 
     <Div class="row all-Listings row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
         <%for(listing of allListings){%>

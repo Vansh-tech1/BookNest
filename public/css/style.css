@@ -17,6 +17,7 @@ body{
     height: 5rem;
     background-color: white;
     /* margin-left: 1rem; */
+    
 }
 .fa-compass{
     color: #fe424d;
@@ -27,6 +28,14 @@ body{
 .nav-link{
     color: #222222 !important;
     margin-left: 0.6rem !important;
+}
+
+/* mainheading */
+.main-heading{
+    display: flex !important;
+    align-items: center !important;
+    
+    height: 3rem !important;
 }
 
 /* Footer */
