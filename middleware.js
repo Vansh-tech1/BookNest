@@ -1,4 +1,5 @@
 let Listing=require("./models/listing");
+let Review=require("./models/review.js");
 const {listingSchema,reviewSchema}=require("./schema.js");
 
 module.exports.isLoggedin=(req,res,next)=>{
@@ -45,3 +46,13 @@ module.exports.validateReview = (req, res, next) => {
         next();
     }
 };
+
+module.exports.isReviewAuthor= async (req,res,next)=>{
+    let{reviewId,id}=req.params;
+    let review=await Review.findById(reviewId);
+    if(!review.author._id.equals(res.locals.currUser._id)){
+        req.flash("error","You Must be Owner to use this!!")
+        return res.redirect(`/listings/${id}`);
+    }
+    next();
+}

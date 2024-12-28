@@ -28,12 +28,12 @@
                 </div>
                 <!-- Buttons Row, aligned with Card content -->
                 <div class="d-flex justify-content-startmb-2">
-                  
+                    <%if(currUser && listing.owner._id.equals(currUser._id)){%>
                         <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn">Edit</a>
                         <form method="post" action="/listings/<%= listing._id %>?_method=DELETE" class="d-inline">
                             <button class="btn btn-dark">Delete</button>
                         </form>
-                    
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -41,6 +41,7 @@
         <!-- Review Form -->
         <div class="row mt-4 justify-content-center">
             <div class="col-md-8 col-lg-6">
+               <% if(currUser){%>
                 <hr>
                 <h4>Leave a Review</h4>
                 <form method="post" action="/listings/<%= listing._id %>/reviews" novalidate class="needs-validation">
@@ -57,6 +58,7 @@
                     </div>
                     <button class="btn btn-outline-dark">Submit</button>
                 </form>
+                <% } %>
             </div>
         </div>
 
@@ -69,7 +71,7 @@
                 <% if (listing.reviews && listing.reviews.length > 0) { %>
                     <% listing.reviews.forEach(review => { %>
                         <div class="review mb-3">
-                            <p><strong>Jane Doe</strong>
+                            <p style="font-size: 1.5rem;"><strong><%=review.author.username%></strong>
                             <p><strong>Rating:</strong> <%= review.rating %> / 5</p>
                             <p><strong>Comment:</strong> <%= review.comment %></p>
                             <form method="post" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE" >
