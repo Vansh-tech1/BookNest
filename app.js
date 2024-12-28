@@ -8,9 +8,10 @@ const path=require("path");
 const methodOverride=require("method-override");
 const ejsMate=require("ejs-mate");
 const wrapAsync=require("./utils/wrapAsync.js");
-const ExpressError=require("./utils/ExpressError.js");
+
 const {listingSchema,reviewSchema}=require("./schema.js");
 const { error } = require("console");
+const ExpressError=require("./utils/ExpressError.js")
 
 const session=require("express-session");
 const flash=require("connect-flash");
@@ -99,7 +100,7 @@ app.use((err,req,res,next)=>{
     let{status=500,message="some error occured"}=err;
     res.status(status).render("listings/error.ejs",{message});
     // res.status(status).send(message);
-    console.log(message);
+    console.log(err);
     
 })
 

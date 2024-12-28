@@ -1,7 +1,7 @@
 let Listing=require("./models/listing");
 let Review=require("./models/review.js");
 const {listingSchema,reviewSchema}=require("./schema.js");
-
+const ExpressError=require("./utils/ExpressError.js");
 module.exports.isLoggedin=(req,res,next)=>{
     if(!req.isAuthenticated()){
         req.session.redirectUrl=req.originalUrl;
@@ -40,7 +40,7 @@ module.exports.validateListing = (req, res, next) => {
 module.exports.validateReview = (req, res, next) => {
     const validationResult = reviewSchema.validate(req.body);
     if (validationResult.error) {
-        const errmsg = validationResult.error.details.map(el => el.message).join(", ");
+        const errmsg = validationResult.error;
         throw new ExpressError(400, errmsg);
     } else {
         next();

@@ -8,6 +8,7 @@ body{
     flex-direction: column;
     min-height: 100vh;
 }
+
 .body-cont{
     flex: 1;
 
