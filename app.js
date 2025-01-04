@@ -1,3 +1,8 @@
+if(process.env.NODE_ENV!="production"){
+    require('dotenv').config()
+}
+
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -71,25 +76,12 @@ app.use((req,res,next)=>{
     next();
 })
 
-
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
-
-
 //accessing routers
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
 
-// app.get("/demouser",async(req,res)=>{
-//     let fakeuser=new User({
-//         email:"vansh8657@gmail.com",
-//         username:"vansh765",
-//     })
-//     let registeredUser=await User.register(fakeuser,"vansh7654321");
-//     res.send(registeredUser);    
-// })
+
 
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Page not found"));
@@ -100,9 +92,9 @@ app.use((err,req,res,next)=>{
     let{status=500,message="some error occured"}=err;
     res.status(status).render("listings/error.ejs",{message});
     // res.status(status).send(message);
-    console.log(err);
-    
+    console.log(err);    
 })
+
 
 
 
