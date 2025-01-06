@@ -28,7 +28,7 @@ module.exports.showListing=async (req,res)=>{
         res.redirect("/listings");
     }
     
-    res.render("listings/show.ejs",{listing});
+    res.render("listings/show.ejs",{listing},);
 }
 
 //create route
