@@ -28,6 +28,7 @@ const User=require("./models/user.js");
 const listingRouter=require("./routes/listings.js");
 const reviewRouter=require("./routes/reviews.js");
 const userRouter=require("./routes/user.js");
+const searchRouter=require("./routes/search.js")
 
 const dbUrl = process.env.ATLASDB_URL;
 
@@ -41,6 +42,8 @@ main().then(() => {
 async function main() {
     await mongoose.connect(dbUrl);
 }
+
+
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -95,12 +98,19 @@ app.use((req,res,next)=>{
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
+app.use("/search",searchRouter)
 
 
+
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+})
 
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Page not found"));
 })
+
+
 
 
 app.use((err,req,res,next)=>{
