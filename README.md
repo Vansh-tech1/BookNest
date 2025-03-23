@@ -14,8 +14,8 @@ Booknest is a web application designed to help users list and book hotel rooms. 
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/Vansh-tech1/WanderLust.git
-    cd WanderLust
+    git clone https://github.com/Vansh-tech1/BookNest.git
+    cd BookNest
     ```
 
 2. **Install dependencies**:
@@ -32,7 +32,7 @@ Booknest is a web application designed to help users list and book hotel rooms. 
 
 4. **Start the server**:
     ```sh
-    npm start
+    node app.js
     ```
 
 ## Usage
