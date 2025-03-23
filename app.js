@@ -36,7 +36,7 @@ const dbUrl = process.env.ATLASDB_URL;
 main().then(() => {
     console.log("connected to db");
 }).catch((err) => {
-    console.log(err);  // Added missing semicolon
+    console.log(err); 
 });
 
 async function main() {

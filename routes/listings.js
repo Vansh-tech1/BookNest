@@ -5,7 +5,9 @@ const wrapAsync=require("../utils/wrapAsync.js");
 const {isLoggedin,isOwner,validateListing}=require("../middleware.js");
 const multer  = require('multer');
 const {storage}=require("../cloudConfig.js");
-const upload = multer({ storage });
+const upload = multer({ storage,
+    limits: { fileSize: 500 * 1024}
+ });
 
 
 
@@ -14,12 +16,18 @@ const listingController=require("../controllers/listings.js");
 router
     .route("/")
     .get(wrapAsync(listingController.index))
-    .post(
-        isLoggedin, 
-                 
-        upload.single('listing[image]'), 
+    router.post(
+        "/",
+        isLoggedin,
+        upload.single("listing[image]"),
+        (err, req, res, next) => {
+            if (err.code === "LIMIT_FILE_SIZE") {
+               req.flash("error","File size exceeds the 500 KB limit!");
+               res.redirect("/listings/new")
+            }
+            next();
+        },
         validateListing,
-
         wrapAsync(listingController.createListing)
     );
 
