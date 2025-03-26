@@ -1,4 +1,4 @@
-body{
+body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
     /* font-optical-sizing: auto ;
     font-weight: 400;
@@ -9,58 +9,61 @@ body{
     min-height: 100vh;
 }
 
-.body-cont{
+.body-cont {
     flex: 1;
 
 }
 
-.navbar{
+.navbar {
     height: 5rem;
     background-color: white;
     /* margin-left: 1rem; */
-    
+
 }
-.fa-compass{
+
+.fa-compass {
     color: #fe424d;
     font-size: 2rem;
-    margin-left: 1rem !important ;
-    
+    margin-left: 1rem !important;
+
 }
-.nav-link{
+
+.nav-link {
     color: #222222 !important;
 }
 
 /* mainheading */
-.main-heading{
+.main-heading {
     display: flex !important;
     align-items: center !important;
-    
+
     height: 3rem !important;
 }
 
 /* Footer */
-.f-info-links a{
+.f-info-links a {
     text-decoration: none;
     color: #222222;
 }
 
-.f-info-links a:hover{
+.f-info-links a:hover {
     text-decoration: underline;
 }
 
-.f-info-links{
+.f-info-links {
     width: 100%;
 }
 
-.f-info-socials{
-    width:100%;
+.f-info-socials {
+    width: 100%;
     font-size: 1.4rem;
 }
 
-.f-info-socials i{
+.f-info-socials i {
     margin-right: 8px;
 }
-.f-info{
+
+.f-info {
     text-align: center;
     align-items: center;
     height: 8rem;
@@ -69,85 +72,129 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-evenly;
-    
+
 }
+
 /* .card-info{
     display: flex;
 } */
 /* card */
 
 
-.card{
-    border:none !important;
+.card {
+    border: none !important;
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: end;
 }
-.card-img-top{
+
+.card-img-top {
     border-radius: 1.2rem !important;
-    object-fit:cover !important;
+    object-fit: cover !important;
     width: 100% !important;
 }
-.card-body{
+
+.card-body {
     padding: 0 !important;
 }
 
-.card-text{
+.card-text {
     font-weight: 400 !important;
     padding: 0 !important;
     margin: 0 !important;
 }
-.all-Listings{
-    display: flex;  
-    margin: auto !important;  
+
+.all-Listings {
+    display: flex;
+    margin: auto !important;
 }
-.body-cont{
+
+.body-cont {
     margin-left: 1rem !important;
     margin-right: 1rem !important;
 }
-.listing-link{
+
+.listing-link {
     text-decoration: none !important;
 }
 
-.card-img-overlay{
+.card-img-overlay {
     opacity: 0;
 }
-.card-img-overlay:hover{
+
+.card-img-overlay:hover {
     opacity: 0.2;
     background-color: white;
 }
 
 /* new page */
 
-.add-btn{
+.add-btn {
     background-color: #fe424d !important;
     border: none !important;
 }
 
 /* edit page */
 
-.edit-btn{
+.edit-btn {
     background-color: #fe424d !important;
     border: none !important;
     margin-right: 0.4rem;
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
 }
 
 /* show page */
 
-.show-img{
+.show-img {
     background-size: contain !important;
     height: 30vh;
 }
 
-.show-btn{
+.show-btn {
     display: flex;
     padding: 0 !important;
 }
 
-.show-card{
+.show-card {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
 
 /* reviews */
-.review{
+.review {
     padding: 0 !important;
+}
+
+/* BookingButton */
+
+.booking-btn {
+    z-index: 10 !important;
+    background-color: #fe424d !important;
+    display: none !important;
+}
+
+.card:hover .booking-btn{
+    opacity: 1;
+    background-color: #fe424d;
+    display: flex !important;
+    position: absolute !important;
+    border: none !important;
+    align-self: flex-end !important;
+    align-content: center !important;
+    align-items: center !important;
+    color: #ebebeb !important;
+    border-radius: 0 0 14px 0 !important;
+}
+.booking-form{
+    display: flex;
+    justify-content: flex-end;
+
+    z-index: 10;
+}
+
+.show-booking-btn{
+    
+    margin-left: 0.41rem !important;
+    background-color: #fe424d !important;
 }

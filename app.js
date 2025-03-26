@@ -32,7 +32,6 @@ const searchRouter=require("./routes/search.js")
 
 const dbUrl = process.env.ATLASDB_URL;
 
-
 main().then(() => {
     console.log("connected to db");
 }).catch((err) => {
@@ -102,9 +101,23 @@ app.use("/search",searchRouter)
 
 
 
+
 app.get("/",(req,res)=>{
     res.redirect("/listings");
 })
+
+app.post("/listings/:id/booking", (req, res) => {
+    console.log("Booking process initiated for ID:", req.params.id);
+    
+
+
+    // Use setTimeout to delay the redirection
+    setTimeout(() => {
+        req.flash("error","Booking Service Not started yet!!");
+       
+        res.redirect("/listings"); // Redirect to the /listings page after 2 seconds
+    }, 1500);
+});
 
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Page not found"));
@@ -119,7 +132,6 @@ app.use((err,req,res,next)=>{
     // res.status(status).send(message);
     console.log(err);    
 })
-
 
 
 
