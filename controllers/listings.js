@@ -38,7 +38,8 @@ module.exports.createListing=async(req,res,next)=>{
     console.log(url,filename);
     const newListing=new Listing(req.body.listing);
     newListing.owner=req.user._id; 
-    newListing.image={url,filename};      
+    newListing.image={url,filename};   
+    newListing.genre="trending";   
     await newListing.save();
     console.log(newListing);
     req.flash("success","New Listing Created!");    

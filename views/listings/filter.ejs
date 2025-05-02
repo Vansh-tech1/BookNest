@@ -1,0 +1,115 @@
+<% layout('/layouts/boilerplate') -%>
+
+    <div class="icons">
+        <div id="filters">
+            <div class="filter">
+                <a href="/filter?category=trending" value="trending">
+                    <div><i class="fa-solid fa-fire"></i></div>
+                    <p>Trending</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=rooms" value="trending">
+                    <div><i class="fa-solid fa-bed"></i></div>
+                    <p>Rooms</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=iconicCities">
+                    <div><i class="fa-solid fa-mountain-city"></i></div>
+                    <p>Iconic Cities</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=castles">
+                    <div><i class="fa-brands fa-fort-awesome"></i></div>
+                    <p>Castles</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=pools" value="trending">
+                    <div><i class="fa-solid fa-person-swimming"></i></div>
+                    <p>Pools</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=camping" value="trending">
+                    <div><i class="fa-solid fa-campground"></i></div>
+                    <p>Camping</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=farms" value="trending">
+                    <div><i class="fa-solid fa-cow"></i></div>
+                    <p>Farms</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=arctic" value="trending">
+                    <div><i class="fa-regular fa-snowflake"></i></div>
+                    <p>Arctic</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=dome" value="trending">
+                    <div><i class="fa-solid fa-igloo"></i></div>
+                    <p>Domes</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=boats" value="trending">
+                    <div><i class="fa-solid fa-ship"></i></div>
+                    <p>Boats</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=treehouse" value="trending">
+                    <div><i class="fa-solid fa-tree-city"></i></div>
+                    <p>TreeHouse</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=bedAndBreakFast" value="trending">
+                    <div><i class="fa-solid fa-mug-saucer"></i></i></div>
+                    <p>BedAndBreakfasts</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/filter?category=beach" value="trending">
+                    <div> <i class="fa-solid fa-umbrella-beach"></i></i></div>
+                    <p>Beach</p>
+                </a>
+            </div>
+        </div>
+        <div class="ms-auto tax-icon">
+            <div class="tax-toggle">
+              <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="row all-Listings row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-2">
+        <% if (typeof filteredListing !=='undefined' && filteredListing.length> 0) { %>
+            <% for (const listing of filteredListing) { %>
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+                    <div class="card">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="..." style="height: 20rem;">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                            <p class="card-text"><b>
+                                    <%= listing.title %>
+                                </b></p>
+                            <p class="card-text">&#8377 <%= listing.price.toLocaleString("en-IN") %>/Night
+                                    <i class="tax-info"> &nbsp; &nbsp;+18% GST</i></p>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+                    <% } else { %>
+                        <h2>No listings found</h2>
+                        <% } %>
+    </div>

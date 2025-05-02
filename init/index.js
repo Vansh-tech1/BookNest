@@ -4,8 +4,8 @@ const mongoose=require("mongoose");
 const initdata=require("./data.js");
 const Listing=require("../models/listing.js");
 
-const dbUrl = process.env.ATLASDB_URL;
-console.log(dbUrl);
+const dbUrl = "mongodb+srv://vansh765:Yv1eQpmzP0AgUqqy@cluster0.omdr8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+console.log("hi");
 
 main().then(() => {
     console.log("connected to db");
@@ -21,7 +21,8 @@ const initDb=async ()=>{
    await Listing.deleteMany({});
    initdata.data= initdata.data.map((obj)=>({
     ...obj,
-    owner:"677a30350b2c230769cbed3c"
+    owner:"677a30350b2c230769cbed3c",
+    genre:"trending",
    }))
     Listing.insertMany(initdata.data);
     console.log("data Initialized");

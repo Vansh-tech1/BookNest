@@ -28,6 +28,9 @@ const listingSchema=new Schema({
       type:Schema.Types.ObjectId,
       ref:"user",
     },
+    genre:{
+      type:String
+    }
 });
 
 

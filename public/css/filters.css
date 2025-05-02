@@ -33,12 +33,18 @@ scrollbar-width: none; /* For Firefox */
     margin-bottom: 0 !important;
 }
 
+.filter > a{
+    text-decoration: none;
+    color: #555;
+}
+
 .filter {
     margin-top: 2rem;
     text-align: center;
     opacity: 0.8;
     height: 60px;
     margin-right: 1rem;
+
 }
 
 .filter:hover {

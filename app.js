@@ -28,7 +28,8 @@ const User=require("./models/user.js");
 const listingRouter=require("./routes/listings.js");
 const reviewRouter=require("./routes/reviews.js");
 const userRouter=require("./routes/user.js");
-const searchRouter=require("./routes/search.js")
+const searchRouter=require("./routes/search.js");
+const filterRouter=require("./routes/filters.js");
 
 const dbUrl = process.env.ATLASDB_URL;
 
@@ -98,6 +99,7 @@ app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
 app.use("/search",searchRouter)
+app.use("/filter",filterRouter);
 
 
 

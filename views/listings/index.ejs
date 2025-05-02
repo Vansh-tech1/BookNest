@@ -3,56 +3,82 @@
   <div class="icons">
     <div id="filters">
       <div class="filter">
-        <div><i class="fa-solid fa-fire"></i></div>
-        <p>Trending</p>
+        <a href="/filter?category=trending" value="trending">
+          <div><i class="fa-solid fa-fire"></i></div>
+          <p>Trending</p>
+        </a>
       </div>
       <div class="filter">
+        <a href="/filter?category=rooms" value="trending">
         <div><i class="fa-solid fa-bed"></i></div>
         <p>Rooms</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-solid fa-mountain-city"></i></div>
-        <p>Iconic Cities</p>
+        <a href="/filter?category=iconicCities">
+          <div><i class="fa-solid fa-mountain-city"></i></div>
+          <p>Iconic Cities</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-brands fa-fort-awesome"></i></div>
-        <p>Castles</p>
+        <a href="/filter?category=castles">
+          <div><i class="fa-brands fa-fort-awesome"></i></div>
+          <p>Castles</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-solid fa-person-swimming"></i></div>
-        <p>Pools</p>
+        <a href="/filter?category=pools" value="trending">
+          <div><i class="fa-solid fa-person-swimming"></i></div>
+          <p>Pools</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-solid fa-campground"></i></div>
-        <p>Camping</p>
+        <a href="/filter?category=camping" value="trending">
+          <div><i class="fa-solid fa-campground"></i></div>
+          <p>Camping</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-solid fa-cow"></i></div>
-        <p>Farms</p>
+        <a href="/filter?category=farms" value="trending">
+          <div><i class="fa-solid fa-cow"></i></div>
+          <p>Farms</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-regular fa-snowflake"></i></div>
-        <p>Arctic</p>
+        <a href="/filter?category=arctic" value="trending">
+          <div><i class="fa-regular fa-snowflake"></i></div>
+          <p>Arctic</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-solid fa-igloo"></i></div>
-        <p>Domes</p>
+        <a href="/filter?category=domes" value="trending">
+          <div><i class="fa-solid fa-igloo"></i></div>
+          <p>Domes</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-solid fa-ship"></i></div>
-        <p>Boats</p>
+        <a href="/filter?category=boats" value="trending">
+          <div><i class="fa-solid fa-ship"></i></div>
+          <p>Boats</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-solid fa-tree-city"></i></div>
-        <p>TreeHouse</p>
+        <a href="/filter?category=treehouse" value="trending">
+          <div><i class="fa-solid fa-tree-city"></i></div>
+          <p>TreeHouse</p>
+        </a>
       </div>
       <div class="filter">
-        <div><i class="fa-solid fa-mug-saucer"></i></i></div>
-        <p>BedAndBreakfasts</p>
+        <a href="/filter?category=bedandbreakfasts" value="trending">
+          <div><i class="fa-solid fa-mug-saucer"></i></i></div>
+          <p>BedAndBreakfasts</p>
+        </a>
       </div>
       <div class="filter">
-        <div> <i class="fa-solid fa-umbrella-beach"></i></i></div>
-        <p>Beach</p>
+        <a href="/filter?category=beach" value="trending">
+          <div> <i class="fa-solid fa-umbrella-beach"></i></i></div>
+          <p>Beach</p>
+        </a>
       </div>
     </div>
 
@@ -77,10 +103,11 @@
         <div class="card ">
           <img src="<%=listing.image.url%>" class="card-img-top" alt="..." style="height: 20rem;">
           <div class="card-img-overlay"></div>
-          <form action="/listings/<%=listing.id%>/booking" method="post"  class="booking-form" onsubmit="return stopAnchor(event)"; >
+          <form action="/listings/<%=listing.id%>/booking" method="post" class="booking-form"
+            onsubmit="return stopAnchor(event)" ;>
             <button type="submit" class="btn btn-sm booking-btn">Book Now</button>
           </form>
-          
+
 
           <div class="card-body">
             <p class="card-text"> <b>
@@ -95,18 +122,18 @@
   </Div>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-    let forms = document.querySelectorAll("form");
-    forms.forEach((form) => {
+      let forms = document.querySelectorAll("form");
+      forms.forEach((form) => {
         form.addEventListener("submit", (event) => {
-            event.stopPropagation(); // Prevent interaction with anchor tag
-            console.log("Form submitted successfully!");
+          event.stopPropagation(); // Prevent interaction with anchor tag
+          console.log("Form submitted successfully!");
         });
+      });
     });
-});
 
-function stopAnchor(event) {
-    event.stopPropagation(); // Prevents anchor click interference
-    return true; // Allow form submission
-}
+    function stopAnchor(event) {
+      event.stopPropagation(); // Prevents anchor click interference
+      return true; // Allow form submission
+    }
 
   </script>
