@@ -118,6 +118,8 @@ app.post("/listings/:id/booking", (req, res) => {
         req.flash("error","Booking Service Not started yet!!");
        
         res.redirect("/listings"); // Redirect to the /listings page after 2 seconds
+        
+       
     }, 1500);
 });
 

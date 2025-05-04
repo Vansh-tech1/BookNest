@@ -33,6 +33,31 @@
             <input type="file" name="listing[image]" placeholder="enter image url/link" class="form-control" id="Image-Link" data-maxFileSize="0.5" required>
             
         </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Genre </label>
+            <select class="form-control" name="listing[genre]">
+                <option value="trending" >trending</option>
+                <option value="rooms" >rooms</option>
+                <option value="iconicCities" >iconicCities</option>
+                <option value="castles" >castles</option>
+                <option value="pools">pools</option>
+                <option value="camping" >camping</option>
+                <option value="domes" >domes</option>
+                <option value="farms" >farms</option>
+                <option value="boats" >boats</option>
+                <option value="treehouse" >treehouse</option>
+                <option value="beach" >beach</option>
+                <option value="bedAndBreakFast" >bedAndBreakFast</option>
+            </select>
+
+            <div class="invalid-feedback">
+                Title should be valid
+            </div>
+            <div class="valid-feedback">
+                Looks good
+            </div>
+        </div>
+
     <div class="row" >
         <div class="col-md-4  mb-3">
             <label for="price" class="form-label">Price</label>

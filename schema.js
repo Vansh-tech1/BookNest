@@ -8,6 +8,7 @@ module.exports.listingSchema=joi.object({
         image:joi.string().uri().allow("",null),
         location:joi.string().required(),
         country:joi.string().required(),
+        genre:joi.string().required(),
     }).required()
 })
 

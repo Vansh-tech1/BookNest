@@ -8,6 +8,9 @@ const listingSchema=new Schema({
         require:true,
     },
     description:String,
+    genre:{
+      type:String
+    },
     image:{
         url:String,
         filename:String, 
@@ -28,9 +31,7 @@ const listingSchema=new Schema({
       type:Schema.Types.ObjectId,
       ref:"user",
     },
-    genre:{
-      type:String
-    }
+    
 });
 
 

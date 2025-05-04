@@ -7,7 +7,6 @@ const wrapAsync=require("../utils/wrapAsync.js");
 
 router.get("/",wrapAsync(async (req,res)=>{
         const category = req.query.category;
-        console.log(category);
         try{
             const filteredListing=await Listing.find({genre:category});
             if (filteredListing.length > 0) {
